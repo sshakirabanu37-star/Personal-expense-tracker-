@@ -1,0 +1,66 @@
+/* ===== Theme variables ===== */
+:root {
+ --bg: #f3f5fb;
+ --panel: #ffffff;
+ --text: #1f2937;
+ --muted: #6b7280;
+ --border: #e5e7eb;
+ --primary: #4f46e5;
+ --primary-dark: #4338ca;
+ --income: #16a34a;
+ --expense: #dc2626;
+ --shadow: 0 4px 18px rgba(31, 41, 55, 0.08);
+ --radius: 14px;
+}
+body.dark {
+ --bg: #0f172a;
+ --panel: #1e293b;
+ --text: #e5e7eb;
+ --muted: #94a3b8;
+ --border: #334155;
+ --shadow: 0 4px 18px rgba(0, 0, 0, 0.4);
+}
+/* ===== Layout ===== */
+.container { max-width: 1150px; margin: 24px auto; padding: 0 18px; display: grid; gap: 
+22px; }
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+.panel {
+Personal Expense Tracker | Page 6 background: var(--panel);
+ border-radius: var(--radius);
+ padding: 22px;
+ box-shadow: var(--shadow);
+}
+.panel h2 { font-size: 1.15rem; margin-bottom: 14px; }
+/* ===== Summary cards ===== */
+.cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+.card {
+ background: var(--panel);
+ border-radius: var(--radius);
+ padding: 18px 20px;
+ box-shadow: var(--shadow);
+ border-left: 5px solid var(--primary);
+}
+.card h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em; color: 
+var(--muted); }
+.card p { font-size: 1.7rem; font-weight: 700; margin-top: 6px; }
+.card.income { border-color: var(--income); }
+.card.income p { color: var(--income); }
+.card.expense { border-color: var(--expense); }
+.card.expense p { color: var(--expense); }
+.card.budget { border-color: #f59e0b; }
+.budget-row { display: flex; gap: 8px; margin: 8px 0; }
+.budget-row input { flex: 1; min-width: 0; }
+.progress { height: 9px; background: var(--border); border-radius: 99px; overflow: hidden; }
+#budgetBar { height: 100%; width: 0; background: var(--income); transition: width 0.4s, 
+background 0.3s; }
+#budgetText { color: var(--muted); font-size: 0.78rem; display: block; margin-top: 6px; }
+/* ===== Responsive ===== */
+@media (max-width: 950px) {
+ .cards { grid-template-columns: repeat(2, 1fr); }
+ .grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+ .cards { grid-template-columns: 1fr; }
+ .topbar { padding: 16px; }
+ .filters input, .filters select { flex: 1; min-width: 120px; }
+}
